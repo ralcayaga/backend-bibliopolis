@@ -49,13 +49,11 @@ export class UsuarioService {
   }
 
   // Eliminar un usuario por ID
-  eliminarUsuario(id: number): boolean {
+  eliminarUsuario(id: number): void {
     for (let i = 0; i < this.usuarios.length; i++) {
       if (this.usuarios[i].id === id) {
         this.usuarios.splice(i, 1);
-        return true; // Usuario eliminado con éxito
       }
     }
-    return false; // Usuario no encontrado
   }
 }

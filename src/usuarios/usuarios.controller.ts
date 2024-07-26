@@ -27,9 +27,6 @@ export class UsuariosController {
 
   @Delete(':id')
   eliminarUsuario(@Param('id') id: number): void {
-    const resultado = this.usuariosService.eliminarUsuario(id);
-    if (!resultado) {
-      console.log(`Usuario con id ${id} no encontrado`);
-    }
+    this.usuariosService.eliminarUsuario(id);
   }
 }
