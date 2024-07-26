@@ -1,12 +1,12 @@
 // src/usuario/usuario.service.ts
 
-import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
-import { Usuario } from 'src/models/usuario'; // Asegúrate de que la ruta es correcta
+import { Injectable } from '@nestjs/common';
+import { Usuario } from 'src/models/usuario'; 
 import { ItemPedido } from 'src/models/itempedido';
 
 @Injectable()
 export class UsuarioService {
-  private usuarios: Usuario[] = []; // Aquí se almacenan los usuarios en memoria
+  private usuarios: Usuario[] = []; // Inicializo
 
   // Registrar un nuevo usuario
   registrarUsuario(nuevoUsuario: Usuario): Usuario {
@@ -17,12 +17,12 @@ export class UsuarioService {
       }
     }
 
-    // Agregar el nuevo usuario a la lista
+    // Agrego el nuevo usuario a la lista
     this.usuarios.push(nuevoUsuario);
     return nuevoUsuario;
   }
 
-  // Obtener un usuario por ID
+  // Obtengo un usuario por id
   obtenerUsuario(id: number): Usuario {
     for (let i = 0; i < this.usuarios.length; i++) {
       if (this.usuarios[i].id === id) {
@@ -32,7 +32,7 @@ export class UsuarioService {
     console.log('Usuario no encontrado');
   }
 
-  // Obtener todos los usuarios, sin las contraseñas
+  // Obtengo todos los usuarios, sin las contraseñas
 
   obtenerTodosUsuarios(): any[] {
     const usuariosSinContrasena = [];
@@ -48,7 +48,7 @@ export class UsuarioService {
     return usuariosSinContrasena;
   }
 
-  // Eliminar un usuario por ID
+  // Elimino un usuario por id
   eliminarUsuario(id: number): void {
     for (let i = 0; i < this.usuarios.length; i++) {
       if (this.usuarios[i].id === id) {
